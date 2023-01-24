@@ -13,7 +13,7 @@ if (!(Test-Path -Path $PROFILE -PathType Leaf)) {
             }
         }
 
-        Invoke-RestMethod https://github.com/ChrisTitusTech/powershell-profile/raw/main/Microsoft.PowerShell_profile.ps1 -o $PROFILE
+        Invoke-RestMethod https://github.com/bsherman/powershell-profile/raw/main/Microsoft.PowerShell_profile.ps1 -o $PROFILE
         Write-Host "The profile @ [$PROFILE] has been created."
     }
     catch {
@@ -23,20 +23,20 @@ if (!(Test-Path -Path $PROFILE -PathType Leaf)) {
 # If the file already exists, show the message and do nothing.
  else {
 		 Get-Item -Path $PROFILE | Move-Item -Destination oldprofile.ps1
-		 Invoke-RestMethod https://github.com/ChrisTitusTech/powershell-profile/raw/main/Microsoft.PowerShell_profile.ps1 -o $PROFILE
+		 Invoke-RestMethod https://github.com/bsherman/powershell-profile/raw/main/Microsoft.PowerShell_profile.ps1 -o $PROFILE
 		 Write-Host "The profile @ [$PROFILE] has been created and old profile removed."
  }
 & $profile
 
 # OMP Install
 #
-winget install -e --accept-source-agreements --accept-package-agreements JanDeDobbeleer.OhMyPosh
+winget install -e --accept-source-agreements --accept-package-agreements Starship.Starship
 
 # Font Install
 # You will have to extract and Install this font manually, alternatively use the oh my posh font installer (Must be run as admin)
 # oh-my-posh font install
 # You will also need to set your Nerd Font of choice in your window defaults or in the Windows Terminal Settings.
-Invoke-RestMethod https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip?WT.mc_id=-blog-scottha -o cove.zip
+Invoke-RestMethod https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.2/FiraCode.zip?WT.mc_id=-blog-scottha -o firacode.zip
 
 # Choco install
 #

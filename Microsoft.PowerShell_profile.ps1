@@ -135,16 +135,6 @@ Set-Alias -Name vim -Value $EDITOR
 
 
 function ll { Get-ChildItem -Path $pwd -File }
-function g { Set-Location $HOME\Documents\Github }
-function gcom {
-    git add .
-    git commit -m "$args"
-}
-function lazyg {
-    git add .
-    git commit -m "$args"
-    git push
-}
 function Get-PubIP {
     (Invoke-WebRequest http://ifconfig.me/ip ).Content
 }
@@ -220,7 +210,7 @@ function pgrep($name) {
 
 
 ## Final Line to set prompt
-oh-my-posh init pwsh --config ~/jandedobbeleer.omp.json | Invoke-Expression
+Invoke-Expression (&starship init powershell)
 
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.
